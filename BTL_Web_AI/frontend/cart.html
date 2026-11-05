@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng & Thanh Toán - TechStore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <i class="fa-solid fa-laptop-code text-blue-600 text-3xl"></i>
+                <span class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">TechStore</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar" class="w-8 h-8 rounded-full">
+                    <span class="text-sm font-medium hidden sm:inline text-gray-600">Nguyễn Văn A</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+        <div class="flex items-center justify-center gap-4 text-sm font-semibold max-w-md mx-auto bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+            <span class="text-blue-600 flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> 1. Giỏ hàng</span>
+            <span class="text-gray-300">➔</span>
+            <span class="text-blue-600 flex items-center gap-1.5"><i class="fa-solid fa-circle-dot animate-pulse"></i> 2. Thanh toán & Giao hàng</span>
+            <span class="text-gray-300">➔</span>
+            <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-circle"></i> 3. Hoàn tất</span>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-2 space-y-4">
+                <div id="cart-items-list" class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                    <h2 class="text-lg font-extrabold text-gray-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-basket-shopping text-blue-600"></i> Sản phẩm trong giỏ hàng (<span id="cart-qty">1</span>)
+                    </h2>
+                    
+                    <div class="flex flex-col sm:flex-row items-center gap-4 py-4 border-b border-gray-100 last:border-0 group">
+                        <div class="w-20 h-20 bg-gray-50 rounded-xl flex items-center justify-center p-2 border border-gray-100">
+                            <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500" alt="iPhone 15" class="object-contain max-h-16">
+                        </div>
+                        <div class="flex-1 text-center sm:text-left">
+                            <h3 class="text-sm font-bold text-gray-800 group-hover:text-blue-600 cursor-pointer">iPhone 15 Pro Max 256GB - Titan Tự Nhiên</h3>
+                            <span class="text-xs text-gray-400 block mt-0.5">Mã: phone-001 | Bảo hành 24 tháng</span>
+                        </div>
+                        <div class="flex items-center border border-gray-200 rounded-lg overflow-hidden bg-gray-50">
+                            <button class="px-2.5 py-1 text-gray-500 hover:bg-gray-100 text-xs font-bold">-</button>
+                            <span class="px-3 py-1 text-xs font-bold bg-white text-gray-800">1</span>
+                            <button class="px-2.5 py-1 text-gray-500 hover:bg-gray-100 text-xs font-bold">+</button>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-sm font-black text-blue-600 block">29.490.000đ</span>
+                            <button class="text-[11px] text-red-400 hover:text-red-600 font-medium mt-1"><i class="fa-solid fa-trash-can mr-1"></i>Xóa</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-3">
+                        <i class="fa-solid fa-truck-fast text-blue-500 text-xl"></i>
+                        <div><h4 class="text-xs font-bold text-gray-800">Giao Hàng Siêu Tốc</h4><p class="text-[10px] text-gray-400">Nội thành trong 2 giờ</p></div>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-3">
+                        <i class="fa-solid fa-arrow-rotate-left text-indigo-500 text-xl"></i>
+                        <div><h4 class="text-xs font-bold text-gray-800">Đổi Trả Dễ Dàng</h4><p class="text-[10px] text-gray-400">Lỗi là đổi mới trong 30 ngày</p></div>
+                    </div>
+                    <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-3">
+                        <i class="fa-solid fa-user-shield text-purple-500 text-xl"></i>
+                        <div><h4 class="text-xs font-bold text-gray-800">100% Chính Hãng</h4><p class="text-[10px] text-gray-400">Phát hiện giả đền x10</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <h2 class="text-lg font-extrabold text-gray-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-file-invoice-dollar text-blue-600"></i> Thông tin đặt hàng
+                    </h2>
+
+                    <div class="space-y-3 text-xs mb-6">
+                        <div>
+                            <label class="block text-gray-500 font-semibold mb-1">Họ và tên người nhận *</label>
+                            <input type="text" value="Nguyễn Văn A" class="w-full bg-gray-50 p-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium">
+                        </div>
+                        <div>
+                            <label class="block text-gray-500 font-semibold mb-1">Số điện thoại *</label>
+                            <input type="text" placeholder="Nhập số điện thoại nhận hàng" class="w-full bg-gray-50 p-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium">
+                        </div>
+                        <div>
+                            <label class="block text-gray-500 font-semibold mb-1">Địa chỉ giao hàng *</label>
+                            <textarea rows="2" placeholder="Số nhà, tên đường, phường/xã, quận/huyện..." class="w-full bg-gray-50 p-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium"></textarea>
+                        </div>
+
+                        <div class="pt-2">
+                            <label class="block text-gray-500 font-semibold mb-1.5">Hình thức giao hàng</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="border-2 border-blue-500 bg-blue-50/30 p-2.5 rounded-xl flex flex-col justify-center cursor-pointer">
+                                    <span class="font-bold text-gray-800 text-[11px] flex items-center gap-1"><i class="fa-solid fa-truck text-blue-500"></i>Tiêu chuẩn</span>
+                                    <span class="text-[10px] text-gray-400 mt-0.5">Miễn phí (2-3 ngày)</span>
+                                </label>
+                                <label class="border border-gray-200 hover:border-blue-500 p-2.5 rounded-xl flex flex-col justify-center cursor-pointer">
+                                    <span class="font-bold text-gray-700 text-[11px] flex items-center gap-1"><i class="fa-solid fa-bolt text-amber-500"></i>Hỏa tốc 2H</span>
+                                    <span class="text-[10px] text-gray-400 mt-0.5">+30.000đ (Nội thành)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                       <div class="pt-2">
+    <label class="block text-gray-500 font-semibold mb-1.5">Phương thức thanh toán</label>
+    <div class="space-y-2">
+        
+        <label id="label-pay-cod" class="border-2 border-blue-500 bg-blue-50/30 p-2.5 rounded-xl flex items-center justify-between cursor-pointer w-full select-none">
+            <span class="font-bold text-gray-800 flex items-center gap-2">
+                <i class="fa-solid fa-money-bill-wave text-emerald-500"></i>Thanh toán khi nhận hàng (COD)
+            </span>
+            <input type="radio" name="payment_method" value="COD" checked class="accent-blue-600 cursor-pointer">
+        </label>
+
+        <label id="label-pay-qr" class="border border-gray-200 hover:border-blue-500 p-2.5 rounded-xl flex items-center justify-between cursor-pointer w-full select-none">
+            <span class="font-bold text-gray-800 flex items-center gap-2">
+                <i class="fa-solid fa-qrcode text-indigo-500"></i>Chuyển khoản / Quét mã QR
+            </span>
+            <input type="radio" name="payment_method" value="QR" class="accent-blue-600 cursor-pointer">
+        </label>
+
+    </div>
+</div>
+                    </div>
+
+                    <div class="border-t border-gray-100 pt-4 space-y-2 text-xs">
+                        <div class="flex justify-between text-gray-400 font-medium"><span>Tạm tính:</span><span class="text-gray-700 font-bold">29.490.000đ</span></div>
+                        <div class="flex justify-between text-gray-400 font-medium"><span>Phí vận chuyển:</span><span class="text-emerald-600 font-bold">Miễn phí</span></div>
+                        <div class="flex justify-between items-baseline pt-2 border-t border-dashed border-gray-100">
+                            <span class="text-sm font-bold text-gray-900">Tổng tiền thanh toán:</span>
+                            <span class="text-xl font-black text-blue-600">29.490.000đ</span>
+                        </div>
+                    </div>
+
+                   <button id="btn-checkout" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-3.5 rounded-xl mt-6 hover:from-blue-700 hover:to-indigo-700 transition-all text-sm shadow-md flex items-center justify-center gap-2">
+    <i class="fa-solid fa-circle-check"></i> Xác Nhận Đặt Hàng Ngay
+</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="w-16 h-16 bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-600 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all text-white border-2 border-white group relative">
+            <i class="fa-solid fa-robot text-2xl"></i>
+            <span class="absolute top-1 right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white animate-pulse"></span>
+        </button>
+    </div>
+<script src="js/main.js"></script>
+</body>
+</html>

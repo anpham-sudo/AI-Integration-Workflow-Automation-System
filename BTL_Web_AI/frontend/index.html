@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Hệ Thống Bán Lẻ Công Nghệ Cao Cấp</title>
+    <!-- Nhúng Tailwind CSS để làm giao diện đẹp đỉnh cao -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font chữ Inter hiện đại -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome để lấy các icon giỏ hàng, user -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 1. HEADER / NAVIGATION -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-laptop-code text-blue-600 text-3xl"></i>
+                <span class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">TechStore</span>
+            </div>
+
+            <!-- Thanh tìm kiếm -->
+            <div class="hidden md:flex flex-1 max-w-md mx-8">
+                <div class="relative w-full">
+                    <input type="text" placeholder="Tìm kiếm điện thoại, laptop đời mới nhất..." class="w-full bg-gray-100 pl-10 pr-4 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-400 text-sm"></i>
+                </div>
+            </div>
+
+            <!-- Giỏ hàng & Profile -->
+            <div class="flex items-center gap-6">
+                <!-- Giỏ hàng (Yêu cầu 4) -->
+                <a href="cart.html" class="relative group p-2">
+                    <i class="fa-solid fa-bag-shopping text-gray-600 text-xl group-hover:text-blue-600 transition-colors"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold shadow-sm">0</span>
+                </a>
+
+                <!-- Profile (Yêu cầu 9, 10) -->
+                <div id="user-profile" class="flex items-center gap-2 cursor-pointer">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar" class="w-8 h-8 rounded-full border border-gray-200">
+                    <span class="text-sm font-medium hidden sm:inline text-gray-600">Khách ghé thăm</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO BANNER KHUYẾN MÃI -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8">
+        <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-xl">
+            <div class="max-w-md relative z-10">
+                <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Sự Kiện Siêu Sale 2026</span>
+                <h1 class="text-3xl sm:text-4xl font-black mt-4 leading-tight">Đại Tiệc Công Nghệ <br>Bùng Nổ Ưu Đãi 50%</h1>
+                <p class="mt-3 text-white/80 text-sm sm:text-base">Hỏi ngay trợ lý AI đáng yêu ở góc màn hình để nhận mã giảm giá độc quyền dành riêng cho bạn!</p>
+                <button class="mt-6 bg-white text-blue-600 font-bold px-6 py-3 rounded-xl hover:bg-opacity-90 transition-all shadow-md text-sm">Mua Sắm Ngay</button>
+            </div>
+            <!-- Decore hình tròn ẩn sau nền -->
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute right-12 top-6 opacity-20 hidden md:block text-[150px]"><i class="fa-solid fa-mobile-screen"></i></div>
+        </div>
+    </section>
+
+    <!-- 3. DANH MỤC SẢN PHẨM -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8">
+        <div class="flex gap-4 overflow-x-auto pb-2">
+            <button class="bg-blue-600 text-white px-5 py-2 rounded-xl text-sm font-medium shadow-sm whitespace-nowrap">Tất Cả Đồ Điện Tử</button>
+            <button class="bg-white text-gray-600 hover:bg-gray-100 px-5 py-2 rounded-xl text-sm font-medium border border-gray-200 whitespace-nowrap transition-colors">Điện Thoại</button>
+            <button class="bg-white text-gray-600 hover:bg-gray-100 px-5 py-2 rounded-xl text-sm font-medium border border-gray-200 whitespace-nowrap transition-colors">Laptop / Máy Tính</button>
+            <button class="bg-white text-gray-600 hover:bg-gray-100 px-5 py-2 rounded-xl text-sm font-medium border border-gray-200 whitespace-nowrap transition-colors">Phụ Kiện</button>
+        </div>
+    </section>
+
+    <!-- 4. LƯỚI SẢN PHẨM (MẪU) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-extrabold text-gray-900 flex items-center gap-2">
+                <span class="w-1 h-6 bg-blue-600 rounded-full"></span> Sản Phẩm Nổi Bật
+            </h2>
+            <span class="text-sm text-gray-500 font-medium">Hiển thị mẫu 1/100 sản phẩm</span>
+        </div>
+
+        <!-- Grid 4 cột xếp sản phẩm cực đẹp -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="product-grid">
+            <!-- Sản phẩm mẫu 1 -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all p-4 flex flex-col group relative">
+                <!-- Tag giảm giá / bao giá đối thủ -->
+                <span class="absolute top-4 left-4 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md z-10">RẺ HƠN ĐỐI THỦ</span>
+                
+                <!-- Hình ảnh -->
+                <div class="aspect-square w-full bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-4">
+                    <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500" alt="Product" class="object-contain h-40 w-40 group-hover:scale-105 transition-transform">
+                </div>
+                
+                <!-- Thông tin sản phẩm -->
+                <div class="mt-4 flex-1 flex flex-col">
+                    <span class="text-xs text-gray-400 font-semibold uppercase">Apple</span>
+                    <h3 class="text-sm font-bold text-gray-800 line-clamp-2 mt-1 hover:text-blue-600 cursor-pointer">iPhone 15 Pro Max 256GB - Chính hãng Titan</h3>
+                    
+                    <!-- Giá cả -->
+                    <div class="mt-2 flex items-baseline gap-2">
+                        <span class="text-base font-black text-blue-600">29.490.000đ</span>
+                        <span class="text-xs text-gray-400 line-through">34.990.000đ</span>
+                    </div>
+
+                    <!-- Đánh giá sao & Đã bán ảo -->
+                    <div class="flex items-center gap-1 mt-1 text-amber-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span class="text-gray-400 font-medium ml-1">(128 đã bán)</span>
+                    </div>
+
+                    <!-- Nút bấm điều hướng qua chi tiết -->
+                    <a href="detail.html?id=phone-001" class="mt-4 block text-center bg-gray-900 text-white text-xs font-bold py-2.5 rounded-xl hover:bg-blue-600 transition-colors">
+                        Xem Chi Tiết & So Sánh Giá
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 5. ICON CHATBOT AI ĐÁNG YÊU (Yêu cầu 8) -->
+   <div id="chat-window" class="hidden fixed bottom-28 right-6 w-80 sm:w-96 h-[450px] bg-white rounded-3xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden z-50 transition-all duration-300">
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 flex items-center justify-between text-white">
+            <div class="flex items-center gap-2">
+                <div class="relative">
+                    <i class="fa-solid fa-robot text-xl"></i>
+                    <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-white animate-pulse"></span>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold">Trợ lý ảo Techstore</h4>
+                    <p class="text-[10px] text-blue-100/80">Đang trực tuyến</p>
+                </div>
+            </div>
+            <button id="close-chat" class="text-white/80 hover:text-white text-sm p-1 transition-colors">
+                <i class="fa-solid fa-xmark text-base"></i>
+            </button>
+        </div>
+        
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-gray-50/60 text-xs">
+            <div class="flex gap-2 items-start">
+                <div class="w-7 h-7 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="bg-white border border-gray-100 p-2.5 rounded-2xl rounded-tl-none shadow-sm max-w-[80%] text-gray-700 leading-relaxed">
+                    Xin chào! Mình là trợ lý AI TechStore. Bạn cần mình hỗ trợ thông tin gì về sản phẩm hay chính sách giao hàng không?
+                </div>
+            </div>
+        </div>
+        
+        <div class="p-3 bg-white border-t border-gray-100 flex items-center gap-2">
+            <input id="chat-input" type="text" placeholder="Nhập câu hỏi của bạn..." class="flex-1 bg-gray-50 text-xs px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-blue-500">
+            <button id="send-chat" class="bg-blue-600 hover:bg-blue-700 text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors text-xs shadow-sm">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+        <div class="bg-white px-4 py-2 rounded-2xl shadow-lg border border-blue-100 text-xs font-semibold text-gray-700 animate-bounce max-w-[200px]">
+            Hi! Hỏi mình các sản phẩm nha!✨
+        </div>
+        <button id="chat-toggle-btn" class="w-16 h-16 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all text-white border-2 border-white group relative">
+            <i class="fa-solid fa-robot text-2xl group-hover:rotate-12 transition-transform"></i>
+            <span class="absolute top-1 right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white animate-pulse"></span>
+        </button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
